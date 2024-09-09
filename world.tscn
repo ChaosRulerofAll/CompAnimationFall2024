@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtlbq1u1pgi48"]
+
+[ext_resource type="PackedScene" uid="uid://du0onj2q2f1yw" path="res://floor.tscn" id="1_edebl"]
+[ext_resource type="PackedScene" uid="uid://b1ik0syx2rjgg" path="res://door.tscn" id="2_wrfbi"]
+
+[sub_resource type="Animation" id="Animation_54e2y"]
+resource_name = "First anim in godot"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Wall with frame/door")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 3, 1, 0, 0.540835, 0, 0.841129, 3.2, 1, 0, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Wall with frame/door")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 3.2, 1, 0, 0, 0, 3.3, 1, -0.15, 0, 0, 3.4, 1, 0, 0, 0)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Wall with frame/door")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 3.2, 1, 1, 1, 1, 3.3, 1, 1.3, 1.1, 3, 3.4, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4tjr"]
+_data = {
+"First anim in godot": SubResource("Animation_54e2y")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guc71"]
+albedo_color = Color(0.592157, 0.592157, 0.592157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k534u"]
+material = SubResource("StandardMaterial3D_guc71")
+size = Vector3(2.5, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxbms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0dex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ua8dj"]
+albedo_color = Color(0.592157, 0.592157, 0.592157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_poddv"]
+material = SubResource("StandardMaterial3D_ua8dj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ep5tb"]
+material = SubResource("StandardMaterial3D_ua8dj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41mi1"]
+
+[node name="World" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_edebl")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r4tjr")
+}
+
+[node name="Wall with frame" type="Node3D" parent="AnimationPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="door" parent="AnimationPlayer/Wall with frame" instance=ExtResource("2_wrfbi")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.5, 0)
+mesh = SubResource("BoxMesh_k534u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(2.5, 0, 0, 0, 3, 0, 0, 0, 0.2, -1.25, 1.5, 0)
+shape = SubResource("BoxShape3D_fxbms")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0.5, 2.5, 0)
+shape = SubResource("BoxShape3D_x0dex")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0.5, 2.5, 0)
+mesh = SubResource("BoxMesh_poddv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 0.2, 1.75, 1.5, 0)
+mesh = SubResource("BoxMesh_ep5tb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="AnimationPlayer/Wall with frame"]
+transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 0.2, 1.75, 1.5, 0)
+shape = SubResource("BoxShape3D_41mi1")

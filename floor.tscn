@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://du0onj2q2f1yw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flen5"]
+albedo_color = Color(0.447059, 0.447059, 0.447059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lh4vv"]
+material = SubResource("StandardMaterial3D_flen5")
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oe8h0"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kosy"]
+albedo_color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5fvl"]
+material = SubResource("StandardMaterial3D_3kosy")
+size = Vector3(1, 0.25, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yy32"]
+albedo_color = Color(0.694118, 0.694118, 0.694118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kl5rd"]
+material = SubResource("StandardMaterial3D_6yy32")
+size = Vector3(2, 0.3, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3wd1"]
+albedo_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_awn3w"]
+material = SubResource("StandardMaterial3D_i3wd1")
+height = 0.23
+
+[node name="Floor" type="StaticBody3D"]
+
+[node name="Mainbody" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lh4vv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oe8h0")
+
+[node name="cobbles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14759, 0, 1.34593)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(0.525011, 0, 0.851095, 0, 1, 0, -0.851095, 0, 0.525011, 2.8976, 0, 0.112041)
+mesh = SubResource("BoxMesh_l5fvl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(-0.347852, 0, 0.937549, 0, 1, 0, -0.937549, 0, -0.347852, 0.481986, 0, -2.23852)
+mesh = SubResource("BoxMesh_l5fvl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(-0.469132, 0, -0.883128, 0, 1, 0, 0.883128, 0, -0.469132, -0.489836, 0, 0.37913)
+mesh = SubResource("BoxMesh_l5fvl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(0.90965, 0, -0.415376, 0, 1, 0, 0.415376, 0, 0.90965, 1.40418, 0, 0.407406)
+mesh = SubResource("BoxMesh_kl5rd")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(-0.259156, 0, 0.965835, 0, 1, 0, -0.965835, 0, -0.259156, -0.614613, 0, -2.46496)
+mesh = SubResource("BoxMesh_kl5rd")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(0.769377, 0, 0.638795, 0, 1, 0, -0.638795, 0, 0.769377, 2.6303, 0, -2.71115)
+mesh = SubResource("BoxMesh_kl5rd")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="cobbles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7449, 0, -0.775378)
+mesh = SubResource("CylinderMesh_awn3w")
