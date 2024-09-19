@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtlbq1u1pgi48"]
+[gd_scene load_steps=14 format=3 uid="uid://dtlbq1u1pgi48"]
 
 [ext_resource type="PackedScene" uid="uid://du0onj2q2f1yw" path="res://floor.tscn" id="1_edebl"]
+[ext_resource type="Script" path="res://animation_player.gd" id="2_45lh2"]
 [ext_resource type="PackedScene" uid="uid://b1ik0syx2rjgg" path="res://door.tscn" id="2_wrfbi"]
 
 [sub_resource type="Animation" id="Animation_54e2y"]
@@ -65,6 +66,7 @@ material = SubResource("StandardMaterial3D_ua8dj")
 libraries = {
 "": SubResource("AnimationLibrary_r4tjr")
 }
+script = ExtResource("2_45lh2")
 
 [node name="Wall with frame" type="Node3D" parent="AnimationPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
@@ -94,3 +96,9 @@ mesh = SubResource("BoxMesh_ep5tb")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="AnimationPlayer/Wall with frame"]
 transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 0.2, 1.75, 1.5, 0)
 shape = SubResource("BoxShape3D_41mi1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.934279, 0.356542, 0, -0.356542, 0.934279, 0, 3.4444, 5.36151)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.694721, 0.719279, 0, -0.719279, 0.694721, 0, 3.66518, 0)

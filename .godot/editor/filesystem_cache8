@@ -1,3 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725919243
+::res://::1726775605
+door.tscn::PackedScene::4228498438667091470::1725920148::0::1::::<><>::
+floor.tscn::PackedScene::8615522136094085190::1725919731::0::1::::<><>::
 icon.svg::CompressedTexture2D::290662855552802334::1725919237::1725919243::1::::<><>::
+wall_with_frame.tscn::PackedScene::6794067380815408835::1725921210::0::1::::<><>::uid://b1ik0syx2rjgg::::res://door.tscn
+world.tscn::PackedScene::8515648922896625019::1725921895::0::1::::<><>::uid://du0onj2q2f1yw::::res://floor.tscn<>uid://b1ik0syx2rjgg::::res://door.tscn

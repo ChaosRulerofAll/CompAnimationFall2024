@@ -2,3 +2,4 @@ res://world.tscn
 res://floor.tscn
 res://door.tscn
 res://wall_with_frame.tscn
+res://animation_player.gd
